@@ -2,22 +2,18 @@ from WeatherDataFetcher import WeatherData
 from DataParser import DataParser
 
 class UserInterface:
-    def __init__(self):
-        self.weather_fetcher = WeatherData()
-        self.data_parser = DataParser()
-
     def display_weather(self, city):
     # Function to display the basic weather forecast for a city
-        data = self.weather_fetcher.fetch_weather_data(city)
+        data = WeatherData.fetch_weather_data(city)
         if not data:
             print(f"Weather data not available for {city}")
         else:
-            weather_report = self.data_parser.parse_weather_data(data)
+            weather_report =DataParser.parse_weather_data()
             print(weather_report)
 
     def get_detailed_forecast(self, city):
-        data = self.weather_fetcher.fetch_weather_data(city)
-        return self.data_parser.parse_weather_data(data)
+        data = WeatherData.fetch_weather_data(city)
+        return DataParser.parse_weather_data(data)
 
     def main(self):
         while True:

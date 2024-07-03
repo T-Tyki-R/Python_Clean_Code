@@ -1,5 +1,4 @@
 class DataParser:
-    
     def parse_weather_data(data):
     # Function to parse weather data
         if not data:
