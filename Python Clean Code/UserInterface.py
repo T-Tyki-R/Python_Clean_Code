@@ -6,12 +6,14 @@ class UserInterface:
         self.weather_fetcher = WeatherData()
         self.data_parser = DataParser()
 
-    def display_basic_weather(self, city):
+    def display_weather(self, city):
+    # Function to display the basic weather forecast for a city
         data = self.weather_fetcher.fetch_weather_data(city)
         if not data:
-            return f"Weather data not available for {city}"
+            print(f"Weather data not available for {city}")
         else:
-            return self.data_parser.parse_weather_data(data)
+            weather_report = self.data_parser.parse_weather_data(data)
+            print(weather_report)
 
     def get_detailed_forecast(self, city):
         data = self.weather_fetcher.fetch_weather_data(city)
@@ -26,7 +28,7 @@ class UserInterface:
             if detailed == 'yes':
                 forecast = self.get_detailed_forecast(city)
             else:
-                forecast = self.display_basic_weather(city)
+                forecast = self.display_weather(city)
             print(forecast)
 
 

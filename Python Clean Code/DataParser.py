@@ -1,7 +1,5 @@
 class DataParser:
-    def __init__(self, data):
-        self.data = data
-
+    
     def parse_weather_data(data):
     # Function to parse weather data
         if not data:

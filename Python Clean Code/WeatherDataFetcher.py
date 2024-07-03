@@ -1,7 +1,4 @@
 class WeatherData:
-    def __init__(self, city):
-        self.city = city
-    
     def fetch_weather_data(city):
     # Simulated function to fetch weather data for a given city
         print(f"Fetching weather data for {city}...")
@@ -11,4 +8,4 @@ class WeatherData:
             "London": {"temperature": 60, "condition": "Cloudy", "humidity": 65, "city": "London"},
             "Tokyo": {"temperature": 75, "condition": "Rainy", "humidity": 70, "city": "Tokyo"}
         }
-        return weather_data.get(city)
+        return weather_data.get(city, {})
